@@ -14,6 +14,12 @@ import Parse
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBAction func uploadImageButton(sender: AnyObject) {
+    }
+    
+    @IBAction func filterButtonPressed(sender: AnyObject) {
+    }
+    
     @IBAction func buttonPressed(sender:UIButton!) {
         print("pressed")
         
