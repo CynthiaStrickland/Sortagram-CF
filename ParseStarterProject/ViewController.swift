@@ -16,16 +16,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func buttonPressed(sender:UIButton!) {
         print("pressed")
         
+                //Check for the camera
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             
+                    //Create Action Sheet
             let alert = UIAlertController(title: "Please Select One", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
             
             let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default) { (alert) -> Void in
-                self.presentImagePicker(.Camera)                
+                self.imagePickerController(.Camera)
             }
             
             let photoLibrary = UIAlertAction(title: "Photos", style: UIAlertActionStyle.Default) { (alert) -> Void in
-                self.presentImagePicker(.PhotoLibrary)
+                self.imagePickerController(.PhotoLibrary)
             }
             
             let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) -> Void in
@@ -33,11 +35,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let alertController = UIAlertController(title: "CANCEL?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 let action = UIAlertAction(title: "YES", style: UIAlertActionStyle.Default, handler: { (alert) -> Void in
+                    
                     print("Cancel")
                 })
                 
-                alertController.addAction(action)
-                self.presentViewController(alertController, animated: true, completion: nil)
+            alertController.addAction(action)
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
             }
             
             alert.addAction(photoLibrary)
@@ -48,22 +52,26 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         } else {
             
-            self.presentImagePicker(.PhotoLibrary)
+            self.imagePickerController(.PhotoLibrary)
             
         }
     }
     
-    func presentImagePicker(sourceType: UIImagePickerControllerSourceType) {
+            // Implement the Delegates
+    func imagePickerController(sourceType: UIImagePickerControllerSourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = sourceType
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = sourceType         //default value sourceType is PhotoLibrary
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        self.imageView.image = image
-        self.dismissViewControllerAnimated(true, completion: nil)
+
+            self.imageView.image = image
+            self.dismissViewControllerAnimated(true, completion: nil)
     }
+            //Dismiss the VC
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
