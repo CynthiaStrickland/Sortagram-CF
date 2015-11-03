@@ -56,7 +56,6 @@ class FilterService {
             completion(filteredImage: finalImage, name: displayName)
 
         }
-        
     }
     
     class func applyBWEffect(image: UIImage, completion: (filteredImage: UIImage?, name: String) -> Void) {
@@ -70,9 +69,7 @@ class FilterService {
         //make sure you are handling the threading yourself -   ???
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
             completion(filteredImage: finalImage, name: displayName)
-            
         }
-        
     }
     
     class func applyChrome(image: UIImage, completion: (filteredImage: UIImage?, name: String) -> Void) {
