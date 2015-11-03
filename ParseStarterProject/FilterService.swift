@@ -41,6 +41,24 @@ class FilterService {
         return finalImage
     }
     
+    //ACTUAL FILTERS
+    
+    class func applyVintageEffect(image: UIImage, completion: (filteredImage: UIImage?, name: String) -> Void) {
+        
+        let filterName = "CIPhotoEffectTransfer"
+        let displayName = "Vintage"
+        
+        //call method for filter
+        let finalImage = self.setupFilter(filterName, parameters: nil, image: image)
+    
+                //make sure you are handling the threading yourself -   ???
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            completion(filteredImage: finalImage, name: displayName)
+
+        }
+        
+    }
+    
 }
 
 
