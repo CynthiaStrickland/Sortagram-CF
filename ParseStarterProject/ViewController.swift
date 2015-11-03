@@ -12,11 +12,58 @@ import UIKit
 import Parse
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet weak var imageView: UIImageView!
+  
     
     @IBAction func uploadImageButton(sender: AnyObject) {
         
+        let image = imageView.image
+        
+        let size = CGSize(width: 600, height: 600)
+        
+        let resizedImage = UIImage.resizeImage(image!, size: size)
+        
+        if let imageData = UIImageJPEGRepresentation(resizedImage, 1.0) {
+            let imageToParse = PFObject(className: kParseImages)
+
+            if let imageFile = PFFile(data: imageData) {
+                imageToParse["image"] = imageFile
+    
+                imageToParse.saveInBackgroundWithBlock { (success, error) -> Void in
+                    if success {
+                        
+                        let alert = UIAlertController(title: "Image was uploaded", message: "Good Job", preferredStyle: UIAlertControllerStyle.Alert)
+                        let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                        alert.addAction(okAction)
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    } else {
+                        
+                        let alert = UIAlertController(title: "Image failed to upload", message: "Try Again", preferredStyle: UIAlertControllerStyle.Alert)
+                        let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                        alert.addAction(okAction)
+                        
+                        self.presentViewController(alert, animated: true, completion: nil)                    }
+                }
+            }
+        }
     }
+    
+        
+//        if let imageData = UIImageJPEGRepresentation(imageFile) {
+//            let status = PFObject(className: "Status")
+//            status[kStatusTextKey] = "Took this picture on my way to Code Fellows today."
+//            
+//            status.saveInBackgroundWithBlock { (success, error) -> Void in
+//                if success {
+//                    print("succes saving to parse.   Check Parse console.")
+//                }
+//            }
+//        }
+//    }
+
     
     @IBAction func filterButtonPressed(sender: AnyObject) {
         presentFilterAlert()
@@ -44,12 +91,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             })
         }
         
-        let ChromeFilterAction = UIAlertAction(title: "Black and White", style: UIAlertActionStyle.Default) { (alert) -> Void in
+        let ChromeFilterAction = UIAlertAction(title: "Chrome", style: UIAlertActionStyle.Default) { (alert) -> Void in
             FilterService.applyChrome(self.imageView.image!, completion: { (filteredImage, name) -> Void in
                     
                 if let filteredImage = filteredImage {
                 self.imageView.image = filteredImage
-                    }
+                }
             })
         }
                 
@@ -59,11 +106,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             alertController.addAction(BWFilterAction)
             alertController.addAction(ChromeFilterAction)
             alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
         }
 
     
     @IBAction func buttonPressed(sender:UIButton!) {
-        print("pressed")
         
         if UIImagePickerController.isSourceTypeAvailable(.Camera) {
             
@@ -82,6 +131,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let alertController = UIAlertController(title: "CANCEL?", message: "", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 let action = UIAlertAction(title: "YES", style: UIAlertActionStyle.Default, handler: { (alert) -> Void in
+                    self.imageView.image = nil
                     print("Cancel")
                 })
                 
@@ -112,6 +162,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         self.imageView.image = image
         self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -120,21 +171,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        
-//        if let imageData = UIImageJPEGRepresentation(image, 0.7) {
-//
-//        let imageFile = PFFile(name: "image", data: imageData)
 
-        let status = PFObject(className: "Status")
-        status[kStatusTextKey] = "Took this picture on my way to Code Fellows today."
-        status["location"] = "Seattle"
-        status["hashtages"] = "#seattle"
-        
-        status.saveInBackgroundWithBlock { (success, error) -> Void in
-            if success {
-                print("succes saving to parse.   Check Parse console.")
-                }
-            }
-        }
     }
+}
 

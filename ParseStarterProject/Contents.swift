@@ -12,3 +12,5 @@ import Parse
 let kParseApplicationId = "ITA6Mezx8VPXnHR8yOxmoYCKeUra2MIa2BfvC1hq"
 let kParseApplicationClientKey = "XVOvcEK4fFCGNEutDrGh75NOsV03BWSZD2TwcnWZ"
 let kStatusTextKey = "text"
+let kParseImages = "Images"
+

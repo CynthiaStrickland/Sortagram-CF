@@ -25,7 +25,7 @@ class FilterService {
         }
         filter.setValue(image, forKey:kCIInputImageKey)   //input image for filter
      
-        // GPU CONTEXT
+        // GPU CONTEXT - BoilerPlate Language
         let options = [kCIContextWorkingColorSpace: NSNull()]
         let myEAGLContext = EAGLContext(API:EAGLRenderingAPI.OpenGLES2)
         let gpuContext = CIContext(EAGLContext: myEAGLContext, options: options)
@@ -83,11 +83,8 @@ class FilterService {
         //make sure you are handling the threading yourself -   ???
         NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
             completion(filteredImage: finalImage, name: displayName)
-            
         }
-        
     }
-    
 }
 
 

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Item-->
@@ -19,45 +18,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e6z-VS-Q9J">
-                                <rect key="frame" x="60" y="60" width="480" height="480"/>
+                                <rect key="frame" x="150" y="61" width="300" height="300"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Baa-om-fwo"/>
+                                    <constraint firstAttribute="width" constant="300" id="yQ7-Og-4Bq"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZD-Lg-1W8">
-                                <rect key="frame" x="60" y="60" width="480" height="480"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpG-HW-KtQ">
+                                <rect key="frame" x="208" y="402" width="185" height="59"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="30"/>
+                                <state key="normal" title="Upload Image">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aPB-5l-bXX"/>
+                                    <action selector="uploadImageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wNF-mj-LaP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpG-HW-KtQ">
-                                <rect key="frame" x="91" y="557" width="95" height="30"/>
-                                <state key="normal" title="Upload Image"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARR-qm-wTA">
+                                <rect key="frame" x="150" y="61" width="300" height="300"/>
                                 <connections>
-                                    <action selector="uploadImageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v75-tf-HuG"/>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Quy-6f-aWS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXN-YZ-9JP">
-                                <rect key="frame" x="451" y="557" width="46" height="30"/>
-                                <state key="normal" title="Filters"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXN-YZ-9JP">
+                                <rect key="frame" x="261" y="476" width="79" height="57"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="29"/>
+                                <state key="normal" title="Filters">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
-                                    <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="86x-td-qmH"/>
+                                    <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXX-zK-F33"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="e6z-VS-Q9J" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="9Oy-7z-S28"/>
-                            <constraint firstItem="e6z-VS-Q9J" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="INe-d5-nIN"/>
-                            <constraint firstItem="e6z-VS-Q9J" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="RiP-uL-Cnd"/>
-                            <constraint firstItem="vZD-Lg-1W8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="cPs-Tf-i7p"/>
-                            <constraint firstItem="vZD-Lg-1W8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="evV-nb-h4T"/>
-                            <constraint firstItem="vZD-Lg-1W8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="p0C-aI-ryo"/>
-                            <constraint firstItem="vZD-Lg-1W8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="sNE-Um-Fc6"/>
-                            <constraint firstItem="e6z-VS-Q9J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y3y-ep-ThA"/>
+                            <constraint firstItem="ARR-qm-wTA" firstAttribute="width" secondItem="e6z-VS-Q9J" secondAttribute="width" id="2Qd-7r-OZf"/>
+                            <constraint firstItem="SpG-HW-KtQ" firstAttribute="centerX" secondItem="e6z-VS-Q9J" secondAttribute="centerX" id="9lz-Db-QXk"/>
+                            <constraint firstItem="e6z-VS-Q9J" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="41" id="M1t-TO-hfB"/>
+                            <constraint firstItem="ARR-qm-wTA" firstAttribute="centerX" secondItem="e6z-VS-Q9J" secondAttribute="centerX" id="Q9X-Kv-4bV"/>
+                            <constraint firstItem="e6z-VS-Q9J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cGc-dm-82y"/>
+                            <constraint firstItem="SpG-HW-KtQ" firstAttribute="top" secondItem="e6z-VS-Q9J" secondAttribute="bottom" constant="41" id="g1a-un-sff"/>
+                            <constraint firstItem="ARR-qm-wTA" firstAttribute="centerY" secondItem="e6z-VS-Q9J" secondAttribute="centerY" id="gKe-Vg-ISc"/>
+                            <constraint firstItem="QXN-YZ-9JP" firstAttribute="centerX" secondItem="e6z-VS-Q9J" secondAttribute="centerX" id="jcb-U7-31Q"/>
+                            <constraint firstItem="ARR-qm-wTA" firstAttribute="height" secondItem="e6z-VS-Q9J" secondAttribute="height" id="raO-jh-VxT"/>
+                            <constraint firstItem="QXN-YZ-9JP" firstAttribute="top" secondItem="SpG-HW-KtQ" secondAttribute="bottom" constant="15" id="zL9-T2-Xqd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="d8u-tG-jLo"/>
                     <connections>
-                        <outlet property="imageView" destination="e6z-VS-Q9J" id="MZe-ju-0kz"/>
+                        <outlet property="imageView" destination="e6z-VS-Q9J" id="AIq-su-7DJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
