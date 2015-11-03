@@ -15,10 +15,52 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func uploadImageButton(sender: AnyObject) {
+        
     }
     
     @IBAction func filterButtonPressed(sender: AnyObject) {
+        presentFilterAlert()
+        
     }
+    
+    func presentFilterAlert() {
+        
+        let alertController = UIAlertController(title: "FILTERS", message: "Pick One", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let VintageFilterAction = UIAlertAction(title: "Vintage", style: UIAlertActionStyle.Default) { (alert) -> Void in
+            FilterService.applyVintageEffect(self.imageView.image!, completion: { (filteredImage, name) -> Void in
+                if let filteredImage = filteredImage {
+                    self.imageView.image = filteredImage
+                }
+            })
+        }
+        
+        let BWFilterAction = UIAlertAction(title: "Black and White", style: UIAlertActionStyle.Default) { (alert) -> Void in
+            FilterService.applyBWEffect(self.imageView.image!, completion: { (filteredImage, name) -> Void in
+                
+                if let filteredImage = filteredImage {
+                self.imageView.image = filteredImage
+                }
+            })
+        }
+        
+        let ChromeFilterAction = UIAlertAction(title: "Black and White", style: UIAlertActionStyle.Default) { (alert) -> Void in
+            FilterService.applyChrome(self.imageView.image!, completion: { (filteredImage, name) -> Void in
+                    
+                if let filteredImage = filteredImage {
+                self.imageView.image = filteredImage
+                    }
+            })
+        }
+                
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            
+            alertController.addAction(VintageFilterAction)
+            alertController.addAction(BWFilterAction)
+            alertController.addAction(ChromeFilterAction)
+            alertController.addAction(cancelAction)
+        }
+
     
     @IBAction func buttonPressed(sender:UIButton!) {
         print("pressed")
@@ -78,8 +120,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        
+//        if let imageData = UIImageJPEGRepresentation(image, 0.7) {
+//
+//        let imageFile = PFFile(name: "image", data: imageData)
 
-       let status = PFObject(className: "Status")
+        let status = PFObject(className: "Status")
         status[kStatusTextKey] = "Took this picture on my way to Code Fellows today."
         status["location"] = "Seattle"
         status["hashtages"] = "#seattle"
@@ -87,7 +133,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         status.saveInBackgroundWithBlock { (success, error) -> Void in
             if success {
                 print("succes saving to parse.   Check Parse console.")
+                }
             }
         }
     }
-}
+
