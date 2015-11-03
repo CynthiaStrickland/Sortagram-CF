@@ -59,6 +59,38 @@ class FilterService {
         
     }
     
+    class func applyBWEffect(image: UIImage, completion: (filteredImage: UIImage?, name: String) -> Void) {
+        
+        let filterName = "CIPhotoEffectMono"
+        let displayName = "Black and White"
+        
+        //call method for filter
+        let finalImage = self.setupFilter(filterName, parameters: nil, image: image)
+        
+        //make sure you are handling the threading yourself -   ???
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            completion(filteredImage: finalImage, name: displayName)
+            
+        }
+        
+    }
+    
+    class func applyChrome(image: UIImage, completion: (filteredImage: UIImage?, name: String) -> Void) {
+        
+        let filterName = "CIPhotoEffectChrome"
+        let displayName = "Chrome"
+        
+        //call method for filter
+        let finalImage = self.setupFilter(filterName, parameters: nil, image: image)
+        
+        //make sure you are handling the threading yourself -   ???
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            completion(filteredImage: finalImage, name: displayName)
+            
+        }
+        
+    }
+    
 }
 
 
