@@ -15,15 +15,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var imageView: UIImageView!
   
-    
     @IBAction func uploadImageButton(sender: AnyObject) {
-        
+                
+        if imageView.image == nil {
+            
+            let alert = UIAlertController(title: "You must select an Image First", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+            let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alert.addAction(okAction)
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        } else {
+            
         let image = imageView.image
-        
+    
         let size = CGSize(width: 600, height: 600)
-        
+    
         let resizedImage = UIImage.resizeImage(image!, size: size)
-        
+    
         if let imageData = UIImageJPEGRepresentation(resizedImage, 1.0) {
             let imageToParse = PFObject(className: kParseImages)
 
@@ -45,25 +54,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         let okAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
                         alert.addAction(okAction)
                         
-                        self.presentViewController(alert, animated: true, completion: nil)                    }
+                        self.presentViewController(alert, animated: true, completion: nil)
+                    }
                 }
             }
         }
     }
+}
     
-        
-//        if let imageData = UIImageJPEGRepresentation(imageFile) {
-//            let status = PFObject(className: "Status")
-//            status[kStatusTextKey] = "Took this picture on my way to Code Fellows today."
-//            
-//            status.saveInBackgroundWithBlock { (success, error) -> Void in
-//                if success {
-//                    print("succes saving to parse.   Check Parse console.")
-//                }
-//            }
-//        }
-//    }
-
     
     @IBAction func filterButtonPressed(sender: AnyObject) {
         presentFilterAlert()

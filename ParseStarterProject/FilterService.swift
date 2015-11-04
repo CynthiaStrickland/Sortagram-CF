@@ -85,6 +85,31 @@ class FilterService {
             completion(filteredImage: finalImage, name: displayName)
         }
     }
+    
+    class func CIColorCrossPolynomial(image: UIImage, completion: (filteredImage: UIImage?, name: String) -> Void) {
+        
+//        var color_polynomial = new CIColorPolynomial () {
+//            Image = flower,
+//            RedCoefficients = new CIVector (0, 0, 0, .4f),
+//            GreenCoefficients = new CIVector (0, 0, .5f, .8f),
+//            BlueCoefficients = new CIVector (0, 0, .5f, 1),
+//            AlphaCoefficients = new CIVector (0, 1, 1, 1),
+//        };
+        
+//        return color_polynomial.OutputImage;
+//    }
+        
+        let filterName = "CIColorCrossPolynomial"
+        let displayName = "Color Cross"
+        
+        //call method for filter
+        let finalImage = self.setupFilter(filterName, parameters: nil, image: image)
+        
+        //make sure you are handling the threading yourself -   ???
+        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+            completion(filteredImage: finalImage, name: displayName)
+        }
+    }
 }
 
 
