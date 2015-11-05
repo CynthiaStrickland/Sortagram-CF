@@ -18,8 +18,47 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewDidLoad()
         self.dataSource()
 
-        let gridLayout = self.galleryCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        gridLayout.itemSize = CGSizeMake(100.0, 100.0)
+        let collectionLayout = self.galleryCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        
+        collectionLayout.itemSize = CGSizeMake(100.0, 100.0)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        fetchStatuses()
+    }
+    
+    func fetchStatuses() {
+        API.fetchObjects { (objects) -> in
+            if let arrayOfStatuses {
+                self.statuses = arrayOfStatuses
+                
+            }
+    
+    }
+        
+    class func fetchObjects(completion: (objects: [Status]?) -> ()) {
+        
+        let query = PFQuery(className: kParseClass)
+        query.whereKeyExtists("image")
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            if error == nil {
+                if let objects = objects {
+                    var arrayOfStatuses = [Status]()
+                    for object in objects {
+                        let pfFileFromObject = object["image"] as! PFFile
+                        let textFromObject = object["statusText"] as! String
+                        let newStatus = Status(statusText: textFromObject, statusImageData: pfFileFromObject)
+                        
+                        arrayOfStatuses.append(NewStatus)
+                    }
+                    completeion(objects: arrayOfStatuses)
+                }
+                
+            } else {
+                
+            }
+        }
     }
 
     func dataSource() {
@@ -46,7 +85,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     
         return cell
         
+        }
     }
+
 }
-
-

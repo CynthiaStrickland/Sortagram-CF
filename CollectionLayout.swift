@@ -8,13 +8,11 @@
 
 import UIKit
 
-class GridLayout: UICollectionViewFlowLayout {
-    
-    
-        
+//class CollectionLayout: UICollectionViewFlowLayout {
+//    
 //    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
 //        
-//        let width = self.view.frame.width
+//        let width = self.image.frame.width
 //        let sizeDimension = (width - 2 * 3) / 4
 //        
 //        return CGSizeMake(sizeDimension, sizeDimension)
@@ -29,4 +27,4 @@ class GridLayout: UICollectionViewFlowLayout {
 //        return 1.0
 //    }
 //    
-}
+//}
