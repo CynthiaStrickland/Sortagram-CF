@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="45S-p1-QAf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="f8U-Zc-Cp5">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -60,9 +60,6 @@
                                 <variation key="heightClass=compact-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="658" y="28" width="101" height="30"/>
                                 </variation>
-                                <connections>
-                                    <segue destination="f8U-Zc-Cp5" kind="show" id="DTo-pt-OP3"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -161,7 +158,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Loe-2g-nPP">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Loe-2g-nPP">
                                 <rect key="frame" x="0.0" y="78" width="600" height="522"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="viw-FV-gwG">
                                     <size key="itemSize" width="200" height="200"/>
@@ -170,7 +167,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="1Cf-JR-woD" customClass="GalleryCollectionViewCell" customModule="ParseStarterProject_Swift" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCollectionViewCell" id="1Cf-JR-woD" customClass="GalleryCollectionViewCell" customModule="ParseStarterProject_Swift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -204,21 +201,26 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="f8U-Zc-Cp5" id="DdB-iG-J3k"/>
+                                    <outlet property="delegate" destination="f8U-Zc-Cp5" id="pFN-22-geR"/>
+                                </connections>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="epg-03-77V">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epg-03-77V">
+                                <rect key="frame" x="0.0" y="34" width="600" height="44"/>
                                 <items>
-                                    <navigationItem title="Gallery" id="dWu-1F-tDe">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Qmf-aC-myD"/>
-                                    </navigationItem>
+                                    <navigationItem title="Gallery" id="dWu-1F-tDe"/>
                                 </items>
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="epg-03-77V" firstAttribute="bottom" secondItem="Loe-2g-nPP" secondAttribute="top" id="MCd-7a-kJw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="epg-03-77V" secondAttribute="trailing" constant="-20" id="NbZ-Hd-pWG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Loe-2g-nPP" secondAttribute="trailing" constant="-20" id="RT3-a0-0LT"/>
                             <constraint firstItem="Loe-2g-nPP" firstAttribute="top" secondItem="aD0-h8-q46" secondAttribute="topMargin" constant="78" id="brS-l9-yKn"/>
                             <constraint firstItem="Loe-2g-nPP" firstAttribute="leading" secondItem="aD0-h8-q46" secondAttribute="leadingMargin" constant="-20" id="cRI-rT-XZP"/>
+                            <constraint firstItem="epg-03-77V" firstAttribute="leading" secondItem="aD0-h8-q46" secondAttribute="leadingMargin" constant="-20" id="raP-yO-orC"/>
                             <constraint firstItem="haE-bk-Ri1" firstAttribute="top" secondItem="Loe-2g-nPP" secondAttribute="bottom" constant="-49" id="tVv-TL-4bR"/>
                         </constraints>
                     </view>

@@ -7,42 +7,44 @@
 //
 
 import UIKit
-import Photos
 
 class GalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
-
-    var albumName: String!
-    var assetsCollection: PHAssetCollection!
-    var photoAssets: PHFetchResult!
+    
+    var collectionViewPictures = [Pictures]()
 
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.dataSource()
 
-        // Do any additional setup after loading the view.
     }
 
+    func dataSource() {
+        
+        for _ in 1...10 {
+            let image = UIImage(named: "atom")
+            let picture = Pictures(text: "Atom", image: image!)
+            self.collectionViewPictures.append(picture)
+        }
+        
+        self.galleryCollectionView.reloadData()
+    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoAssets.count
+        return self.collectionViewPictures.count
     }
-    
+
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell: GalleryCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! GalleryCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(GalleryCollectionViewCell.identifier(), forIndexPath: indexPath) as! GalleryCollectionViewCell
         
-        let asset: PHAsset = photoAssets[indexPath.row] as! PHAsset
-        
-        PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: PHImageManagerMaximumSize, contentMode: PHImageContentMode.AspectFit, options: nil) { (image: UIImage?, object: [NSObject: AnyObject]?) -> Void in
-            
-            cell.imageView.image = image
-            
-        }
+        let picture = self.collectionViewPictures[indexPath.row]
+        cell.picture = picture
+    
         return cell
         
     }
-    
     
     // Mark:  Collection View Layout
     
@@ -62,6 +64,6 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 1.0
     }
-
-
 }
+
+
