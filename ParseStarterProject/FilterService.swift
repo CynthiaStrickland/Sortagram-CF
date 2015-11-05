@@ -86,30 +86,24 @@ class FilterService {
         }
     }
     
-    class func CIColorCrossPolynomial(image: UIImage, completion: (filteredImage: UIImage?, name: String) -> Void) {
-        
-//        var color_polynomial = new CIColorPolynomial () {
-//            Image = flower,
-//            RedCoefficients = new CIVector (0, 0, 0, .4f),
-//            GreenCoefficients = new CIVector (0, 0, .5f, .8f),
-//            BlueCoefficients = new CIVector (0, 0, .5f, 1),
-//            AlphaCoefficients = new CIVector (0, 1, 1, 1),
-//        };
-        
-//        return color_polynomial.OutputImage;
+//    class func CIColorCrossPolynomial(image: UIImage, completion: (filteredImage: UIImage?, name: String) -> Void) {
+//        
+//            let filterName = "CIColorCrossPolynomial"
+//            let displayName = "Color Cross"
+//        
+//        
+//            let redVector = PolynomialCoefficients(a0: 0.0, a1: 0.0, a2: 0.0, a3: 0.4)
+//            let greenVector = PolynomialCoefficients(a0: 0.0, a1: 0.0, a2: 0.5, a3: 0.8)
+//            let blueVector = PolynomialCoefficients(a0: 0.0, a1: 0.0, a2: 0.5, a3: 1.0)
+//            let alphaVector = PolynomialCoefficients(a0: 0.0, a1: 1.0, a2: 1.0, a3: 1.0)
+//        
+//        let options = ColorPolynomialOptions(inputRedCoefficients: redVector, inputGreenCoefficients: greenVector, inputBlueCoefficients: blueVector, inputAlphaCoefficients: alphaVector)
+//        
+//        let finalImage = ColorPolynomial(options)
+//        
+//        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+//            completion(filteredImage: finalImage, name: displayName)
+//        }
 //    }
-        
-        let filterName = "CIColorCrossPolynomial"
-        let displayName = "Color Cross"
-        
-        //call method for filter
-        let finalImage = self.setupFilter(filterName, parameters: nil, image: image)
-        
-        //make sure you are handling the threading yourself -   ???
-        NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
-            completion(filteredImage: finalImage, name: displayName)
-        }
-    }
+
 }
-
-

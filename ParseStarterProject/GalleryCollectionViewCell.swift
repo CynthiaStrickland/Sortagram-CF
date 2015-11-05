@@ -11,6 +11,9 @@ import UIKit
 class GalleryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
+    class func identifier() -> String {
+        return "GalleryControllerViewCell"
+    }
     
     
 }

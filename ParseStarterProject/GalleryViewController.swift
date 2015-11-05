@@ -30,7 +30,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell: AlbumsCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! AlbumsCollectionViewCell
+        let cell: GalleryCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! GalleryCollectionViewCell
         
         let asset: PHAsset = photoAssets[indexPath.row] as! PHAsset
         
