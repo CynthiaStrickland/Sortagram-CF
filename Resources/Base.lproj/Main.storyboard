@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Get Image-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -94,16 +94,16 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="d8u-tG-jLo"/>
+                    <tabBarItem key="tabBarItem" title="Get Image" image="sun44.png" id="d8u-tG-jLo"/>
                     <connections>
                         <outlet property="imageView" destination="e6z-VS-Q9J" id="AIq-su-7DJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032" y="312"/>
+            <point key="canvasLocation" x="1074" y="2"/>
         </scene>
-        <!--Item-->
+        <!--Gallery-->
         <scene sceneID="mWO-VB-ysH">
             <objects>
                 <viewController id="f8U-Zc-Cp5" customClass="GalleryViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -163,14 +163,14 @@
                             <constraint firstItem="haE-bk-Ri1" firstAttribute="top" secondItem="Loe-2g-nPP" secondAttribute="bottom" constant="-49" id="tVv-TL-4bR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="AVv-58-yBS"/>
+                    <tabBarItem key="tabBarItem" title="Gallery" image="codegirl44.png" id="AVv-58-yBS"/>
                     <connections>
                         <outlet property="galleryCollectionView" destination="Loe-2g-nPP" id="Utt-NU-mJN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Faq-Gt-phU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032" y="1094"/>
+            <point key="canvasLocation" x="1074" y="694"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7LS-q3-Zc9">
@@ -191,4 +191,8 @@
             <point key="canvasLocation" x="364" y="312"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="codegirl44.png" width="44" height="44"/>
+        <image name="sun44.png" width="44" height="44"/>
+    </resources>
 </document>

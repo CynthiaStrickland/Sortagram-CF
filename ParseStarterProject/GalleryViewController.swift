@@ -10,9 +10,14 @@ import UIKit
 
 class GalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     
-    var collectionViewPictures = [Pictures]()
-
     @IBOutlet weak var galleryCollectionView: UICollectionView!
+    
+
+    var picture = [Pictures]() {
+        didSet {
+            self.galleryCollectionView.reloadData()
+    }
+}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,63 +34,59 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func fetchStatuses() {
-        API.fetchObjects { (objects) -> in
-            if let arrayOfStatuses {
-                self.statuses = arrayOfStatuses
-                
+        API.fetchObjects { (objects) -> () in
+            if let arrayOfPictures = objects {
+                self.picture = arrayOfPictures
+
             }
+            
+        }
     
     }
-        
-    class func fetchObjects(completion: (objects: [Status]?) -> ()) {
-        
-        let query = PFQuery(className: kParseClass)
-        query.whereKeyExtists("image")
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if error == nil {
-                if let objects = objects {
-                    var arrayOfStatuses = [Status]()
-                    for object in objects {
-                        let pfFileFromObject = object["image"] as! PFFile
-                        let textFromObject = object["statusText"] as! String
-                        let newStatus = Status(statusText: textFromObject, statusImageData: pfFileFromObject)
-                        
-                        arrayOfStatuses.append(NewStatus)
-                    }
-                    completeion(objects: arrayOfStatuses)
-                }
-                
-            } else {
-                
-            }
-        }
-    }
-
-    func dataSource() {
-        
-        for _ in 1...100 {
-            let image = UIImage(named: "atom")
-            let picture = Pictures(text: "Atom", image: image!)
-            self.collectionViewPictures.append(picture)
-        }
-        
+    
+   func dataSource() {
+//        
+//        for _ in 1...100 {
+//            let image = UIImage(named: "atom")
+//            let picture = Pictures(pictureImageData: image, pictureText: "Atom")
+//            self.galleryCollectionView.append(picture)
+//        }
+    
         self.galleryCollectionView.reloadData()
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.collectionViewPictures.count
+        return galleryCollectionView.count
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(GalleryCollectionViewCell.identifier(), forIndexPath: indexPath) as! GalleryCollectionViewCell
         
-        let picture = self.collectionViewPictures[indexPath.row]
-        cell.picture = picture
-    
+        cell.statusForTimeLine = galleryCollectionView[indexPath.row]
+        
+//        let picture = self.collectionViewPictures[indexPath.row]
+//        cell.picture = picture
+//    
         return cell
         
         }
+    
+    
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+
+        let collectionViewWidth = CGRectGetWidth(self.view.frame)
+        let width = (collectionViewWidth / 2.0) - 0.5
+        
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSizeMake(width, width)
+        layout.minimumLineSpacing = 1.0
+        layout.minimumInteritemSpacing = 1.0
+        
+        return layout.itemSize
+            
+        }
     }
 
-}
+

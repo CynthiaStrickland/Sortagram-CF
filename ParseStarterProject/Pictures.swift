@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import Parse
 
 class Pictures {
     
-    let image: UIImage
-    let text: String
+    var pictureImageData: PFFile
+    var pictureImage: UIImage?
+    var pictureText = ""
     
-    init(text: String, image: UIImage) {
-        self.text = text
-        self.image = image
+    init(pictureImageData: PFFile, pictureText: String) {
+        self.pictureImageData = pictureImageData
+        self.pictureText = pictureText
     }
 }
 

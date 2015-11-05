@@ -10,6 +10,7 @@
 
 import UIKit
 import Parse
+import Photos
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
    
@@ -110,6 +111,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         }
 
+    // MARK :   BUTTON PRESSED
     
     @IBAction func buttonPressed(sender:UIButton!) {
         
