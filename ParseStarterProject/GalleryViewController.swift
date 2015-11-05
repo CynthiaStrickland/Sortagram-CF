@@ -18,11 +18,13 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewDidLoad()
         self.dataSource()
 
+        let gridLayout = self.galleryCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        gridLayout.itemSize = CGSizeMake(100.0, 100.0)
     }
 
     func dataSource() {
         
-        for _ in 1...10 {
+        for _ in 1...100 {
             let image = UIImage(named: "atom")
             let picture = Pictures(text: "Atom", image: image!)
             self.collectionViewPictures.append(picture)
@@ -44,25 +46,6 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     
         return cell
         
-    }
-    
-    // Mark:  Collection View Layout
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        let width = self.view.frame.width
-        let sizeDimension = (width - 2 * 3) / 4
-        
-        return CGSizeMake(sizeDimension, sizeDimension)
-        
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 1.0
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 1.0
     }
 }
 

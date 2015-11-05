@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="f8U-Zc-Cp5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="45S-p1-QAf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -52,20 +52,10 @@
                                     <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXX-zK-F33"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TFl-cY-qeG">
-                                <rect key="frame" x="479" y="513" width="101" height="30"/>
-                                <state key="normal" title="CollectionView">
-                                    <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <variation key="heightClass=compact-widthClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="658" y="28" width="101" height="30"/>
-                                </variation>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ARR-qm-wTA" firstAttribute="width" secondItem="e6z-VS-Q9J" secondAttribute="width" id="2Qd-7r-OZf"/>
-                            <constraint firstItem="TFl-cY-qeG" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="4WY-cH-8li"/>
                             <constraint firstItem="SpG-HW-KtQ" firstAttribute="centerX" secondItem="e6z-VS-Q9J" secondAttribute="centerX" id="9lz-Db-QXk">
                                 <variation key="heightClass=compact" constant="130.5"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="379.5"/>
@@ -82,8 +72,6 @@
                                 <variation key="heightClass=compact" constant="-130"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-217"/>
                             </constraint>
-                            <constraint firstItem="TFl-cY-qeG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="dja-dV-N2d"/>
-                            <constraint firstItem="TFl-cY-qeG" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="dtD-Um-nQd"/>
                             <constraint firstItem="SpG-HW-KtQ" firstAttribute="top" secondItem="e6z-VS-Q9J" secondAttribute="bottom" constant="41" id="g1a-un-sff">
                                 <variation key="heightClass=compact" constant="76"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-237"/>
@@ -93,11 +81,8 @@
                                 <variation key="heightClass=compact" constant="130.5"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="383.5"/>
                             </constraint>
-                            <constraint firstItem="TFl-cY-qeG" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="p6e-E5-DGZ"/>
                             <constraint firstItem="QXN-YZ-9JP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="397" id="pd5-nA-KQs"/>
                             <constraint firstItem="ARR-qm-wTA" firstAttribute="height" secondItem="e6z-VS-Q9J" secondAttribute="height" id="raO-jh-VxT"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TFl-cY-qeG" secondAttribute="bottom" constant="8" id="s5N-Oo-7zP"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TFl-cY-qeG" secondAttribute="bottom" constant="8" id="uef-fT-SDJ"/>
                             <constraint firstItem="QXN-YZ-9JP" firstAttribute="top" secondItem="SpG-HW-KtQ" secondAttribute="bottom" constant="15" id="zL9-T2-Xqd">
                                 <variation key="heightClass=compact-widthClass=regular" constant="35"/>
                             </constraint>
@@ -108,10 +93,6 @@
                                 <exclude reference="Bhb-6u-vkq"/>
                                 <exclude reference="GVr-1j-h0T"/>
                                 <exclude reference="pd5-nA-KQs"/>
-                                <exclude reference="uef-fT-SDJ"/>
-                                <exclude reference="4WY-cH-8li"/>
-                                <exclude reference="dja-dV-N2d"/>
-                                <exclude reference="p6e-E5-DGZ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -124,16 +105,6 @@
                                 <exclude reference="jcb-U7-31Q"/>
                                 <include reference="pd5-nA-KQs"/>
                                 <exclude reference="zL9-T2-Xqd"/>
-                                <include reference="dja-dV-N2d"/>
-                                <include reference="p6e-E5-DGZ"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="constraints">
-                                <exclude reference="s5N-Oo-7zP"/>
-                                <include reference="uef-fT-SDJ"/>
-                                <include reference="4WY-cH-8li"/>
-                                <exclude reference="dtD-Um-nQd"/>
                             </mask>
                         </variation>
                     </view>
@@ -146,7 +117,7 @@
             </objects>
             <point key="canvasLocation" x="1032" y="312"/>
         </scene>
-        <!--Gallery View Controller-->
+        <!--Item-->
         <scene sceneID="mWO-VB-ysH">
             <objects>
                 <viewController id="f8U-Zc-Cp5" customClass="GalleryViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,8 +129,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Loe-2g-nPP">
-                                <rect key="frame" x="0.0" y="78" width="600" height="522"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Loe-2g-nPP">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" red="0.9960784912109375" green="0.99215692281723022" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="viw-FV-gwG">
                                     <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -176,16 +148,6 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TDN-IH-p1x">
                                                     <rect key="frame" x="8" y="8" width="184" height="184"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="HBn-OX-0bd"/>
-                                                        <constraint firstAttribute="height" constant="200" id="dWt-1I-Q4x"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="HBn-OX-0bd"/>
-                                                            <exclude reference="dWt-1I-Q4x"/>
-                                                        </mask>
-                                                    </variation>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -206,31 +168,23 @@
                                     <outlet property="delegate" destination="f8U-Zc-Cp5" id="pFN-22-geR"/>
                                 </connections>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="epg-03-77V">
-                                <rect key="frame" x="0.0" y="34" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Gallery" id="dWu-1F-tDe"/>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="epg-03-77V" firstAttribute="bottom" secondItem="Loe-2g-nPP" secondAttribute="top" id="MCd-7a-kJw"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="epg-03-77V" secondAttribute="trailing" constant="-20" id="NbZ-Hd-pWG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Loe-2g-nPP" secondAttribute="trailing" constant="-20" id="RT3-a0-0LT"/>
-                            <constraint firstItem="Loe-2g-nPP" firstAttribute="top" secondItem="aD0-h8-q46" secondAttribute="topMargin" constant="78" id="brS-l9-yKn"/>
+                            <constraint firstItem="Loe-2g-nPP" firstAttribute="top" secondItem="aD0-h8-q46" secondAttribute="topMargin" constant="20" id="brS-l9-yKn"/>
                             <constraint firstItem="Loe-2g-nPP" firstAttribute="leading" secondItem="aD0-h8-q46" secondAttribute="leadingMargin" constant="-20" id="cRI-rT-XZP"/>
-                            <constraint firstItem="epg-03-77V" firstAttribute="leading" secondItem="aD0-h8-q46" secondAttribute="leadingMargin" constant="-20" id="raP-yO-orC"/>
                             <constraint firstItem="haE-bk-Ri1" firstAttribute="top" secondItem="Loe-2g-nPP" secondAttribute="bottom" constant="-49" id="tVv-TL-4bR"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="AVv-58-yBS"/>
                     <connections>
                         <outlet property="galleryCollectionView" destination="Loe-2g-nPP" id="Utt-NU-mJN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Faq-Gt-phU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1701" y="312"/>
+            <point key="canvasLocation" x="1032" y="1094"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7LS-q3-Zc9">
@@ -243,6 +197,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="WHV-vD-4I9"/>
+                        <segue destination="f8U-Zc-Cp5" kind="relationship" relationship="viewControllers" id="RkU-8e-3ka"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mGz-Jv-hoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
