@@ -23,13 +23,12 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="386" id="Baa-om-fwo"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="600" id="VHQ-zk-xoU"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="386" id="yCv-Ht-a1K"/>
                                     <constraint firstAttribute="width" constant="600" id="yQ7-Og-4Bq"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARR-qm-wTA">
                                 <rect key="frame" x="0.0" y="61" width="600" height="386"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Quy-6f-aWS"/>
                                 </connections>

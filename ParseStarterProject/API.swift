@@ -17,9 +17,9 @@ class API {
         
         if let imageData = UIImageJPEGRepresentation(image, 0.7) {
             print(imageData)
-            let imageFile = PFFile(name: "image", data: imageData)
+            let imageFile = PFFile(name: "Image", data: imageData)
             let status = PFObject(className: "Status")
-            status["image"] = imageFile
+            status["Image"] = imageFile
             
             status.saveInBackgroundWithBlock( { (sucess, error) -> Void in
                 if sucess {

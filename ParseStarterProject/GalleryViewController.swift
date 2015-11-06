@@ -15,6 +15,21 @@ protocol GalleryViewControllerDelegate {
 
 class GalleryViewController: UIViewController, UICollectionViewDataSource {
     var delegate: GalleryViewControllerDelegate?
+//    
+//    
+//    
+//    func initializeGestureRecognizer() {
+//        var pinchGesture: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: Selector("recognizePinchGesture:"))
+//        imageView.addGestureRecognizer(pinchGesture)
+//    }
+//    
+//    func recognizePinchGesture(sender: UIPinchGestureRecognizer) {
+//        let scale = sender.scale
+//        let velocity = sender.velocity
+//        let imageView = "Pinch - scale = \(scale), velocity = \(velocity)"
+//        
+//    }
+    
     
     @IBOutlet weak var colletionView: UICollectionView!
     
@@ -29,10 +44,11 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+                //CALLING GESTURE RECOGNIZER
+//        self.initializeGestureRecognizer()
+        
         self.colletionView.dataSource = self
-        
         self.colletionView.collectionViewLayout = myCollectionViewLayout
-        
         let query = PFQuery(className: "Status")
         
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
@@ -40,10 +56,6 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource {
                 self.posts = objects
             }
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
