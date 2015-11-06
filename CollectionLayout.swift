@@ -7,24 +7,26 @@
 //
 
 import UIKit
+import Parse
 
-//class CollectionLayout: UICollectionViewFlowLayout {
-//    
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        
-//        let width = self.image.frame.width
-//        let sizeDimension = (width - 2 * 3) / 4
-//        
-//        return CGSizeMake(sizeDimension, sizeDimension)
-//        
-//    }
-//    
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-//        return 1.0
-//    }
-//    
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-//        return 1.0
-//    }
-//    
-//}
+class CollectionLayout: UICollectionViewFlowLayout {
+    
+    override init() {
+        super.init()
+        self.setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    func setup() {
+        self.itemSize = CGSizeMake(159.0, 159.0)
+        self.minimumLineSpacing = 2.0
+        self.minimumInteritemSpacing = 2.0
+        
+    }
+    
+    
+}
