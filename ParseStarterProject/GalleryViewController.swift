@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+
 
 class GalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     
