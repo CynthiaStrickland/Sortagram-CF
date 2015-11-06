@@ -9,6 +9,8 @@
 import UIKit
 import CoreImage
 
+                                //FILTER SERVICE CLASS
+
 class FilterService {
     
     private class func setupFilter(filterName: String, parameters: [String: AnyObject]?, image: UIImage) -> UIImage?{
@@ -41,7 +43,7 @@ class FilterService {
         return finalImage
     }
     
-    //ACTUAL FILTERS
+                                    //ACTUAL FILTERS
     
     class func applyVintageEffect(image: UIImage, completion: (filteredImage: UIImage?, name: String) -> Void) {
         
