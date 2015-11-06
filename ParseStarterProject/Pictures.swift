@@ -13,7 +13,7 @@ class Pictures {
     
     var pictureImageData: PFFile
     var pictureImage: UIImage?
-    var pictureText = ""
+    var pictureText: String
     
     init(pictureImageData: PFFile, pictureText: String) {
         self.pictureImageData = pictureImageData
