@@ -12,6 +12,14 @@ class GalleryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    
+    var post: Status? {
+        didSet {
+            if let post = self.post {
+                self.imageView.image = post.image
+            }
+        }
+    }
     class func identifier() -> String {
         return "GalleryCollectionViewCell"
     }

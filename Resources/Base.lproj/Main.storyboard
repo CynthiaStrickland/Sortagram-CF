@@ -145,7 +145,7 @@
                                             <constraint firstItem="TDN-IH-p1x" firstAttribute="top" secondItem="1Cf-JR-woD" secondAttribute="topMargin" id="fGF-OO-Zqa"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="imageView" destination="TDN-IH-p1x" id="Fbr-UW-wUK"/>
+                                            <outlet property="imageView" destination="TDN-IH-p1x" id="YVP-Pq-rdP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

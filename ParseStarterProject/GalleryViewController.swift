@@ -63,6 +63,8 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
 }
 
 
+
+
 //protocol GalleryViewControllerDelegate {
 //
 //    func galleryViewControllerDidFinish(image: UIImage)
