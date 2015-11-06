@@ -145,7 +145,7 @@
                                             <constraint firstItem="TDN-IH-p1x" firstAttribute="top" secondItem="1Cf-JR-woD" secondAttribute="topMargin" id="fGF-OO-Zqa"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="imageView" destination="TDN-IH-p1x" id="Fbr-UW-wUK"/>
+                                            <outlet property="imageView" destination="TDN-IH-p1x" id="jtB-4k-uLk"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -165,7 +165,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Gallery" image="codegirl44.png" id="AVv-58-yBS"/>
                     <connections>
-                        <outlet property="galleryCollectionView" destination="Loe-2g-nPP" id="Utt-NU-mJN"/>
+                        <outlet property="colletionView" destination="Loe-2g-nPP" id="iOZ-Y4-Ria"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Faq-Gt-phU" userLabel="First Responder" sceneMemberID="firstResponder"/>

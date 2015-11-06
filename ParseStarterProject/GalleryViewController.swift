@@ -1,5 +1,5 @@
 //
-//  GalleryViewController.swift
+//  GalleryCollectionViewCell.swift
 //  ParseStarterProject-Swift
 //
 //  Created by Cynthia Whitlatch on 11/3/15.
@@ -9,43 +9,50 @@
 import UIKit
 import Parse
 
-class GalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
-    
-    @IBOutlet weak var galleryCollectionView: UICollectionView!
+protocol GalleryViewControllerDelegate {
+    func galleryViewControllerDidFinish(image: UIImage)
+}
 
-    var gallery = [PFObject]() {
+class GalleryViewController: UIViewController, UICollectionViewDataSource {
+    var delegate: GalleryViewControllerDelegate?
+    
+    @IBOutlet weak var colletionView: UICollectionView!
+    
+    let myCollectionViewLayout = CustomeFlowLayout()
+    
+    var posts = [PFObject]() {
         didSet {
-            self.galleryCollectionView.reloadData()
+            self.colletionView.reloadData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-    
-    func queryForCollectionView() -> PFQuery {
         
-        let query = PFQuery(className: "CollectionViewData")
+        self.colletionView.dataSource = self
+        
+        self.colletionView.collectionViewLayout = myCollectionViewLayout
+        
+        let query = PFQuery(className: "Status")
         
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            
             if let objects = objects {
-            self.gallery = objects
+                self.posts = objects
             }
         }
-        
-        return query
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.gallery.count
+        return self.posts.count
     }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(GalleryCollectionViewCell.identifier(), forIndexPath: indexPath) as!GalleryCollectionViewCell
-        let post = self.gallery[indexPath.row]
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(GalleryCollectionViewCell.identifier(), forIndexPath: indexPath) as! GalleryCollectionViewCell
+        let post = self.posts[indexPath.row]
         
         if let imageFile = post["image"] as? PFFile {
             imageFile.getDataInBackgroundWithBlock({ (data, error) -> Void in
@@ -58,101 +65,4 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         return cell
     }
-    
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        let collectionViewWidth = CGRectGetWidth(self.view.frame)
-        let width = (collectionViewWidth / 2.0) - 0.5
-        
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSizeMake(width, width)
-        layout.minimumLineSpacing = 1.0
-        layout.minimumInteritemSpacing = 1.0
-        
-        return layout.itemSize
-        }
 }
-
-
-
-
-
-
-
-
-//    var picture = [Pictures]() {
-//        didSet {
-//            self.galleryCollectionView.reloadData()
-//    }
-//}
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        self.dataSource()
-//
-//        let collectionLayout = self.galleryCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//        
-//        collectionLayout.itemSize = CGSizeMake(100.0, 100.0)
-//    }
-//    
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(true)
-//        fetchStatuses()
-//    }
-//    
-//    func fetchStatuses() {
-//        API.fetchObjects { (objects) -> () in
-//            if let arrayOfPictures = objects {
-//                self.picture = arrayOfPictures
-//
-//            }
-//            
-//        }
-//    
-//    }
-//    
-//   func dataSource() {
-////        
-////        for _ in 1...100 {
-////            let image = UIImage(named: "atom")
-////            let picture = Pictures(pictureImageData: image, pictureText: "Atom")
-////            self.galleryCollectionView.append(picture)
-////        }
-//    
-//        self.galleryCollectionView.reloadData()
-//    }
-//    
-//    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return picture.count
-//    }
-//
-//    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-//        
-//        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(GalleryCollectionViewCell.identifier(), forIndexPath: indexPath) as! GalleryCollectionViewCell
-//        
-//        cell.statusForTimeLine = galleryCollectionView[indexPath.row]
-//        
-////        let picture = self.picture[indexPath.row]
-////        cell.picture = picture
-////    
-//        return cell
-//        
-//        }
-    
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//
-//        let collectionViewWidth = CGRectGetWidth(self.view.frame)
-//        let width = (collectionViewWidth / 2.0) - 0.5
-//        
-//        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//        layout.itemSize = CGSizeMake(width, width)
-//        layout.minimumLineSpacing = 1.0
-//        layout.minimumInteritemSpacing = 1.0
-//        
-//        return layout.itemSize
-//            
-//        }
-//    }
-
-

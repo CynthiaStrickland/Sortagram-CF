@@ -6,7 +6,7 @@
 //  Copyright © 2015 Parse. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import Parse
 
 let kParseApplicationId = "ITA6Mezx8VPXnHR8yOxmoYCKeUra2MIa2BfvC1hq"
