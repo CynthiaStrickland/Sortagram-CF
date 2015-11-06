@@ -94,7 +94,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="d8u-tG-jLo"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="sun44.png" id="d8u-tG-jLo"/>
                     <connections>
                         <outlet property="imageView" destination="e6z-VS-Q9J" id="AIq-su-7DJ"/>
                     </connections>
@@ -163,7 +163,7 @@
                             <constraint firstItem="haE-bk-Ri1" firstAttribute="top" secondItem="Loe-2g-nPP" secondAttribute="bottom" constant="-49" id="tVv-TL-4bR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="AVv-58-yBS"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="codegirl44.png" id="AVv-58-yBS"/>
                     <connections>
                         <outlet property="galleryCollectionView" destination="Loe-2g-nPP" id="Utt-NU-mJN"/>
                     </connections>
@@ -191,4 +191,8 @@
             <point key="canvasLocation" x="364" y="312"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="codegirl44.png" width="44" height="44"/>
+        <image name="sun44.png" width="44" height="44"/>
+    </resources>
 </document>

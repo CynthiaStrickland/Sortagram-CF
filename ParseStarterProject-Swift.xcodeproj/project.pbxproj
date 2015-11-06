@@ -11,6 +11,8 @@
 		3D03D6711BEB01FD0065D7C7 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D03D6701BEB01FD0065D7C7 /* Status.swift */; };
 		3D03D6751BEB0F560065D7C7 /* CollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D03D6741BEB0F560065D7C7 /* CollectionLayout.swift */; };
 		3D03D6861BED17200065D7C7 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D03D6851BED17200065D7C7 /* API.swift */; };
+		3D03D6881BED1A720065D7C7 /* codegirl44.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D03D6871BED1A720065D7C7 /* codegirl44.png */; };
+		3D03D68A1BED1A7A0065D7C7 /* sun44.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D03D6891BED1A7A0065D7C7 /* sun44.png */; };
 		3D9933371BE819F900B162E4 /* splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9933361BE819F900B162E4 /* splash.storyboard */; };
 		3D9933391BE81A1300B162E4 /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9933381BE81A1300B162E4 /* Contents.swift */; };
 		3D9D2E3A1BE926EC00963443 /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9D2E391BE926EC00963443 /* FilterService.swift */; };
@@ -35,6 +37,8 @@
 		3D03D6701BEB01FD0065D7C7 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		3D03D6741BEB0F560065D7C7 /* CollectionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionLayout.swift; path = ../CollectionLayout.swift; sourceTree = "<group>"; };
 		3D03D6851BED17200065D7C7 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		3D03D6871BED1A720065D7C7 /* codegirl44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codegirl44.png; sourceTree = "<group>"; };
+		3D03D6891BED1A7A0065D7C7 /* sun44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun44.png; sourceTree = "<group>"; };
 		3D9933361BE819F900B162E4 /* splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = splash.storyboard; path = ParseStarterProject/splash.storyboard; sourceTree = "<group>"; };
 		3D9933381BE81A1300B162E4 /* Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
 		3D9D2E391BE926EC00963443 /* FilterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				3D9D2E3D1BE9677200963443 /* atom.png */,
 				3D9933361BE819F900B162E4 /* splash.storyboard */,
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
+				3D03D6871BED1A720065D7C7 /* codegirl44.png */,
+				3D03D6891BED1A7A0065D7C7 /* sun44.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,12 +119,12 @@
 				814C3AC61B69877600E307BB /* Main.storyboard */,
 				3D9D2E411BE96A7D00963443 /* GalleryCollectionViewCell.swift */,
 				3D9D2E3F1BE969E300963443 /* GalleryViewController.swift */,
-				3D03D6851BED17200065D7C7 /* API.swift */,
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
-				3D03D6701BEB01FD0065D7C7 /* Status.swift */,
 				3D9D2E391BE926EC00963443 /* FilterService.swift */,
 				3D9D2E3B1BE9317A00963443 /* UIImageExtension.swift */,
 				3D9933381BE81A1300B162E4 /* Contents.swift */,
+				3D03D6851BED17200065D7C7 /* API.swift */,
+				3D03D6701BEB01FD0065D7C7 /* Status.swift */,
 				3D03D6741BEB0F560065D7C7 /* CollectionLayout.swift */,
 			);
 			path = ParseStarterProject;
@@ -211,6 +217,8 @@
 				3D9D2E3E1BE9677300963443 /* atom.png in Resources */,
 				3D9933371BE819F900B162E4 /* splash.storyboard in Resources */,
 				814C3ACA1B69877600E307BB /* Main.storyboard in Resources */,
+				3D03D6881BED1A720065D7C7 /* codegirl44.png in Resources */,
+				3D03D68A1BED1A7A0065D7C7 /* sun44.png in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

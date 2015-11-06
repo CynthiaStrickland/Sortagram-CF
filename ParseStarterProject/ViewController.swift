@@ -146,8 +146,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
         } else {
             
-            self.presentImagePicker(.PhotoLibrary)
-            
+            self.presentImagePicker(.PhotoLibrary)            
         }
     }
     
@@ -160,6 +159,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         self.imageView.image = image
+        self.imageView.layer.masksToBounds = true
+        print("recived image from uiimagepickercontroller :)>")
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
